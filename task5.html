@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+    <style>
+        #card-container{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+        .card {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .card-image{
+            width: 45%;
+            height: 20vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="card-container"></div>
+    <script>
+        // Example data array
+        const cardData = [
+            { image:"https://gudstory.s3.us-east-2.amazonaws.com/wp-content/uploads/2022/11/17091019/Who-Is-The-Most-Famous-Person-In-The-World.jpg", title: "Card 1", description: "This is the first card." },
+            { image:"https://wordingvibes.com/us/wp-content/uploads/2022/08/mr-bean.jpg",title: "Card 2", description: "This is the second card." },
+            { image:"https://cdn.thecoolist.com/wp-content/uploads/2022/03/The-Rock-is-on-of-Hollywoods-A-List-Actors.png",title: "Card 3", description: "This is the third card." },
+            { image:"https://cdn.thecoolist.com/wp-content/uploads/2022/03/Ronaldo-Rightly-Deserves-to-be-Classed-Among-Footballs-Living-Legends.png",title: "Card 4", description: "This is the fourth card." },
+            { image:"https://cdn.thecoolist.com/wp-content/uploads/2022/03/Will-Smith-Has-Two-Academy-Award-Nominations-in-2022-and-Holds-Several-Box-Office-Records.png",title: "Card 5", description: "This is the fivth card." },
+            { image:"https://www.newvisiontheatres.com/wp-content/uploads/2023/06/Mark-Zuckerberg-1.jpg",title: "Card 6", description: "This is the sixth card." },
+            { image:"https://curiosityhuman.com/wp-content/uploads/2016/01/Albert-Einstein-famous-people-of-all-time-1024x942.jpg",title: "Card 7", description: "This is the seventh card." },
+            { image:"https://worldstopinsider.com/wp-content/uploads/2020/07/DONALD-TRUMP.jpg",title: "Card 8", description: "This is the eight card." },
+        ];
+
+        const cardHTML = cardData.map(data => {
+            return `
+                <div class="card">
+                    <img src="${data.image}" alt="${data.title}" class="card-image" />
+                    <h2>${data.title}</h2>
+                    <p>${data.description}</p>
+                </div>
+            `;
+        }).join("");
+
+        document.getElementById("card-container").innerHTML = cardHTML;
+
+    </script>
+</body>
+</html>
